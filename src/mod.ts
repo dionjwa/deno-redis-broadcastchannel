@@ -5,9 +5,9 @@ import {
   subscribeClient,
 } from './db/redis/client.ts';
 
-// Import the necessary modules from Deno
-// const { EventTarget, Event } = globalThis;
-
+/**
+ * Implements the BroadcastChannel interface using Redis pubsub.
+ */
 export class BroadcastChannelRedis
   extends EventTarget
   implements BroadcastChannel

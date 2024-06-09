@@ -1,6 +1,11 @@
 const DENO_KV_URL = Deno.env.get("DENO_KV_URL");
 let localkv: Deno.Kv | undefined = undefined;
 
+/**
+ * Get default or local dev Deno.Kv
+ * @returns Deno.Kv
+ */
+
 export const getKv = async (): Promise<Deno.Kv> => {
   if (localkv === undefined) {
     const thiskv = await Deno.openKv(DENO_KV_URL ? DENO_KV_URL : undefined);

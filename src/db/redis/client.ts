@@ -8,6 +8,9 @@ if (!url) {
 
 const hostname = new URL(url).hostname;
 
+/**
+ * Redis publish client
+ */
 export const publishClient = createClient({ url });
 
 (publishClient as any)
@@ -24,6 +27,9 @@ export const publishClient = createClient({ url });
 
 await publishClient.connect();
 
+/**
+ * Redis subscribe client
+ */
 export const subscribeClient = createClient({ url });
 
 (subscribeClient as any)
