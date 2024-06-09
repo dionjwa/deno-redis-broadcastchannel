@@ -1,0 +1,66 @@
+version: "2.4"
+
+services:
+
+  test: 
+    depends_on:
+      redis: 
+        condition: service_started
+      denokv:
+        condition: service_started
+    container_name: broadcast-test
+    image: denoland/deno:alpine-1.41.2
+    command: deno test --unstable-kv -A --watch --trace-leaks
+    working_dir: /app
+    environment:
+      - DENO_DIR=/deno
+      - DENO_INSTALL_ROOT=/deno
+      - REDIS_URL=redis://redis:6379
+      - DENO_KV_ACCESS_TOKEN=localdenoaccesstoken
+      - DENO_KV_URL=http://denokv:4512
+    volumes:
+      - deno:/deno
+      - .:/app
+
+  # test2: 
+  #   depends_on:
+  #     redis: 
+  #       condition: service_started
+  #     denokv:
+  #       condition: service_started
+  #   container_name: broadcast-test2
+  #   image: denoland/deno:alpine-1.41.2
+  #   command: deno test --unstable-kv -A --watch --trace-leaks
+  #   working_dir: /app
+  #   environment:
+  #     - DENO_DIR=/deno
+  #     - DENO_INSTALL_ROOT=/deno
+  #     - REDIS_URL=redis://redis:6379
+  #     - DENO_KV_ACCESS_TOKEN=localdenoaccesstoken
+  #     - DENO_KV_URL=http://denokv:4512
+  #   volumes:
+  #     - deno:/deno
+  #     - .:/app
+   
+  # Build the production static assets on changes.
+  # The worker service will serve these
+  redis:
+    container_name: broadcast-redis
+    image: redis:7.2.4
+    ports:
+      - "6379:6379"
+    
+  denokv:
+    container_name: broadcast-denokv
+    image: ghcr.io/denoland/denokv
+    command: --sqlite-path /data/denokv.sqlite serve --access-token localdenoaccesstoken
+    volumes:
+      - denokv:/data
+  
+volumes:
+  deno:
+    driver: local
+  denokv:
+    driver: local
+
+

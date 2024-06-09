@@ -1,0 +1,9 @@
+{
+  "name": "@metapages/deno-redis-broadcastchannel",
+  "version": "0.1.0",
+  "exports": "./mod.ts",
+  "imports": {
+    "/@/kv": "./src/db/kv/kv.ts",
+    "redis": "npm:redis@4.5"
+  }
+}
