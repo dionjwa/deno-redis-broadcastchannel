@@ -4,6 +4,7 @@
   "exports": "./src/mod.ts",
   "imports": {
     "/@/kv": "./src/db/kv/kv.ts",
-    "redis": "npm:redis@4.5"
+    "redis": "npm:redis@4.5",
+    "crypto_random_string": "npm:crypto-random-string@5.0.0"
   }
 }

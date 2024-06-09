@@ -3,6 +3,7 @@
   "packages": {
     "specifiers": {
       "npm:@types/node": "npm:@types/node@18.16.19",
+      "npm:crypto-random-string@5.0.0": "npm:crypto-random-string@5.0.0",
       "npm:redis@4.5": "npm:redis@4.5.1_@redis+client@1.4.2"
     },
     "npm": {
@@ -52,6 +53,12 @@
         "integrity": "sha512-rwHwUfXL40Chm1r08yrhU3qpUvdVlgkKNeyeGPOxnW8/SyVDvgRaed/Uz54AqWNaTCAThlj6QAs3TZcKI0xDEw==",
         "dependencies": {}
       },
+      "crypto-random-string@5.0.0": {
+        "integrity": "sha512-KWjTXWwxFd6a94m5CdRGW/t82Tr8DoBc9dNnPCAbFI1EBweN6v1tv8y4Y1m7ndkp/nkIBRxUxAzpaBnR2k3bcQ==",
+        "dependencies": {
+          "type-fest": "type-fest@2.19.0"
+        }
+      },
       "generic-pool@3.9.0": {
         "integrity": "sha512-hymDOu5B53XvN4QT9dBmZxPX4CWhBPPLguTZ9MMFeFa/Kg0xWVfylOVNlJji/E7yTZWFd/q9GO5TxDLq156D7g==",
         "dependencies": {}
@@ -66,6 +73,10 @@
           "@redis/search": "@redis/search@1.1.0_@redis+client@1.4.2",
           "@redis/time-series": "@redis/time-series@1.0.4_@redis+client@1.4.2"
         }
+      },
+      "type-fest@2.19.0": {
+        "integrity": "sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==",
+        "dependencies": {}
       },
       "yallist@4.0.0": {
         "integrity": "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==",
@@ -108,6 +119,7 @@
   },
   "workspace": {
     "dependencies": [
+      "npm:crypto-random-string@5.0.0",
       "npm:redis@4.5"
     ]
   }

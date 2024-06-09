@@ -1,6 +1,4 @@
-import {
-  cryptoRandomString,
-} from 'https://deno.land/x/crypto_random_string@1.0.0/mod.ts';
+import cryptoRandomString from 'crypto_random_string';
 
 import {
   publishClient,
@@ -8,7 +6,7 @@ import {
 } from './db/redis/client.ts';
 
 // Import the necessary modules from Deno
-const { EventTarget, Event } = globalThis;
+// const { EventTarget, Event } = globalThis;
 
 export class BroadcastChannelRedis
   extends EventTarget
