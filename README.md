@@ -8,6 +8,8 @@ This is a drop-in replacement for the native BroadcastChannel.
 
 ## Usage:
 
+Required: define the env var `REDIS_URL`: the full redis URL connection string. For the docker-compose stack it's: `redis://redis:6379`
+
 
 Example of sending messages between to BroadcastChannel objects connected to the same channel:
 ```typescript

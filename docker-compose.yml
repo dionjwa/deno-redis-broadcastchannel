@@ -42,8 +42,7 @@ services:
   #     - deno:/deno
   #     - .:/app
    
-  # Build the production static assets on changes.
-  # The worker service will serve these
+  
   redis:
     container_name: broadcast-redis
     image: redis:7.2.4
