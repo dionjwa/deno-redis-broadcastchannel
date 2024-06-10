@@ -17,8 +17,8 @@ Example of sending messages between to BroadcastChannel objects connected to the
   import { BroadcastChannelRedis } from "@metapages/deno-redis-broadcastchannel";
 
   const channelName = "channel1";
-  const channel1 = await new BroadcastChannelRedis(channelName).ready();
-  const channel2 = await new BroadcastChannelRedis(channelName).ready();
+  const channel1 = await new BroadcastChannelRedis(channelName).connect();
+  const channel2 = await new BroadcastChannelRedis(channelName).connect();
 
   channel2.onmessage = (ev) => {
     console.log(`channel2 got message: ${ev.data}`)

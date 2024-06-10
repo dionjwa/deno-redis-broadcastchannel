@@ -21,7 +21,7 @@ export class BroadcastChannelRedis
     
   }
 
-  async ready () :Promise<BroadcastChannelRedis> {
+  async connect () :Promise<BroadcastChannelRedis> {
 
     this.subscriptionHandler = (message: string, channel: string) => {
       // console.log(`${this.id} 🐋🐋🐋 ws: subscription message recieved: ${message} closed=${closed} channel=${channel}`);

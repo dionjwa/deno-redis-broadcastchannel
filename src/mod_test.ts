@@ -9,8 +9,8 @@ import { BroadcastChannelRedis } from './mod.ts';
 Deno.test({name:"send string", async fn() {
   
   const channelName = "channel1";
-  const channel1 = await new BroadcastChannelRedis(channelName).ready();
-  const channel2 = await new BroadcastChannelRedis(channelName).ready();
+  const channel1 = await new BroadcastChannelRedis(channelName).connect();
+  const channel2 = await new BroadcastChannelRedis(channelName).connect();
   assertExists(channel1);
   
   const messageDeferred = deferred<string>();
@@ -34,8 +34,8 @@ Deno.test({name:"send string", async fn() {
 Deno.test({name:"send object", async fn() {
   
   const channelName = "channel1";
-  const channel1 = await new BroadcastChannelRedis(channelName).ready();
-  const channel2 = await new BroadcastChannelRedis(channelName).ready();
+  const channel1 = await new BroadcastChannelRedis(channelName).connect();
+  const channel2 = await new BroadcastChannelRedis(channelName).connect();
   assertExists(channel1);
   
   const messageDeferred = deferred<{thing:number}>();
@@ -60,9 +60,9 @@ Deno.test({name:"send object", async fn() {
 Deno.test({name:"send object to multiple listeners", async fn() {
   
   const channelName = "channel1";
-  const channel1 = await new BroadcastChannelRedis(channelName).ready();
-  const channel2 = await new BroadcastChannelRedis(channelName).ready();
-  const channel3 = await new BroadcastChannelRedis(channelName).ready();
+  const channel1 = await new BroadcastChannelRedis(channelName).connect();
+  const channel2 = await new BroadcastChannelRedis(channelName).connect();
+  const channel3 = await new BroadcastChannelRedis(channelName).connect();
   assertExists(channel1);
   
   const message2Deferred = deferred<{thing:number}>();
@@ -92,8 +92,8 @@ Deno.test({name:"send object to multiple listeners", async fn() {
 Deno.test({name:"send null", async fn() {
   
   const channelName = "channel1";
-  const channel1 = await new BroadcastChannelRedis(channelName).ready();
-  const channel2 = await new BroadcastChannelRedis(channelName).ready();
+  const channel1 = await new BroadcastChannelRedis(channelName).connect();
+  const channel2 = await new BroadcastChannelRedis(channelName).connect();
   assertExists(channel1);
   
   const messageDeferred = deferred<null>();
@@ -117,8 +117,8 @@ Deno.test({name:"send null", async fn() {
 Deno.test({name:"send undefined, becomes null", async fn() {
   
   const channelName = "channel1";
-  const channel1 = await new BroadcastChannelRedis(channelName).ready();
-  const channel2 = await new BroadcastChannelRedis(channelName).ready();
+  const channel1 = await new BroadcastChannelRedis(channelName).connect();
+  const channel2 = await new BroadcastChannelRedis(channelName).connect();
   assertExists(channel1);
   
   const messageDeferred = deferred<undefined>();
