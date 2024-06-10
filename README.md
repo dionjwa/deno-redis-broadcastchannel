@@ -1,10 +1,10 @@
 ## BroadcastChannel via redis
 
-https://docs.deno.com/deploy/api/runtime-broadcast-channel
+Redis-backed drop-in replacement implementation of the deno deploy [BroadcastChannel](https://docs.deno.com/deploy/api/runtime-broadcast-channel).
 
-The current native deno.deploy implementation does not work locally, so development is difficult.
+Reason? The current native deno.deploy implementation does not work locally, so development is difficult.
 
-This is a drop-in replacement for the native BroadcastChannel.
+See the local `docker-compose.yml` for configuration.
 
 ## Usage:
 
