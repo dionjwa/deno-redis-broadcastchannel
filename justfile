@@ -25,3 +25,11 @@ dev:
 # Test: TODO (currrently not implemented)
 @test:
   echo "TODO: add tests"
+
+@fmt +args="":
+    deno fmt {{ args }}
+    
+
+@ci:
+  deno fmt --check
+  echo -e "deno fmt ✅ "

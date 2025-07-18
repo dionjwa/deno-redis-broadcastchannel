@@ -1,10 +1,16 @@
 {
   "name": "@metapages/deno-redis-broadcastchannel",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "exports": "./src/mod.ts",
   "imports": {
     "/@/kv": "./src/db/kv/kv.ts",
     "redis": "npm:redis@4.5",
     "crypto_random_string": "npm:crypto-random-string@5.0.0"
+  },
+  "fmt": {
+    "lineWidth": 120,
+    "indentWidth": 2,
+    "semiColons": true,
+    "singleQuote": false
   }
 }
