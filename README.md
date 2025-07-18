@@ -9,6 +9,8 @@ See the local `docker-compose.yml` for configuration.
 
 ## Usage:
 
+It's a drop in replacement, with one exception: you need to call `channel.connect()`
+
 Configuration is via env vars:
 
 - `DENO_BROADCAST_REDIS_URL`: the full redis URL connection string. For the docker-compose stack it's:
@@ -34,6 +36,12 @@ if (Deno.env.get("DENO_BROADCAST_REDIS_URL") === "redis://redis:6379") {
 // Now BroadcastChannels will use the local redis cache for local development
 // and deno BroadcastChannel in production
 const channel = new CustomBroadcastChannel(address);
+
+// For local development, await on connect to make sure the channel is ready
+// before sending messages
+if (Deno.env.get("DENO_BROADCAST_REDIS_URL") === "redis://redis:6379") {
+  await (channel as BroadcastChannelRedis).connect();
+}
 ```
 
 ### Usage
@@ -53,7 +61,3 @@ channel2.onmessage = (ev) => {
 
 await channel1.postMessage("done");
 ```
-
-### Configuration
-
-There is no
